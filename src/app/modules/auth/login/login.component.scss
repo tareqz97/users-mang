@@ -1,0 +1,25 @@
+:host {
+  width: 100%;
+  & .btn-custom{
+    background: #fac077;
+    border-color: #fac077;
+    &:hover{
+      background: #fac077 !important;
+      border-color: #fac077 !important;
+      opacity: 0.9;      
+    }
+  }
+  @media (min-width: 992px) {
+    .login-form {
+      width: 100%;
+      max-width: 450px;
+
+      .mat-form-field {
+        width: 100%;
+      }
+    }
+  }
+}
+.hide{
+  display: none;
+}
