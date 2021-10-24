@@ -44,7 +44,6 @@ export class AuthService implements OnDestroy {
 
   logout(){
     this.httpClient.post(`${environment.apiUrl.split("/admin")[0]}/api/logout`, {
-     
     });
     // 
     ls.removeValue('currentUser');
@@ -54,7 +53,6 @@ export class AuthService implements OnDestroy {
 
   loginCustom(body){
     return this.httpClient.post<IUserInfo>(`${environment.apiUrl.split("/admin")[0]}/api/auth/login`, body,{
-      
     });
   }
 
