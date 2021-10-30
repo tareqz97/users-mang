@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { LocalStorage as ls } from '../../../utils/localstorage.service';
+import { FirebaseService } from '../firebase.service';
 
 @Injectable({
   providedIn: 'root',
@@ -35,6 +36,7 @@ export class AuthService implements OnDestroy {
     private authHttpService: AuthHTTPService,
     private router: Router,
     private httpClient: HttpClient,
+    private firebase: FirebaseService
   ) {
     this.isLoadingSubject = new BehaviorSubject<boolean>(false);
     this.currentUserSubject = new BehaviorSubject<UserModel>(undefined);
@@ -43,10 +45,10 @@ export class AuthService implements OnDestroy {
   }
 
   logout(){
-    this.httpClient.post(`${environment.apiUrl.split("/admin")[0]}/api/logout`, {
-    });
-    // 
-    ls.removeValue('currentUser');
+    // this.httpClient.post(`${environment.apiUrl.split("/admin")[0]}/api/logout`, {
+    // });
+    // ls.removeValue('currentUser');
+    this.firebase.isLoggedIn = false;
     this.router.navigate(['/auth/login'], {queryParams: {},});
   }
 

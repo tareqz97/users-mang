@@ -34,6 +34,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { MatCardModule } from '@angular/material/card';
 import { AgmCoreModule } from '@agm/core';
 import { TableEmptyComponent } from './shared/table-empty/table-empty.component';
+import { UsersComponent } from './_layout/components/users/users.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { TableEmptyComponent } from './shared/table-empty/table-empty.component'
     AsideDynamicComponent,
     HeaderMenuDynamicComponent,
     TableEmptyComponent,
+    UsersComponent,
   ],
   imports: [
     AgmCoreModule,

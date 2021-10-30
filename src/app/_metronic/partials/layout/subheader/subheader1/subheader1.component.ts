@@ -21,7 +21,7 @@ export class Subheader1Component implements OnInit {
   }
 
   updateBreadcrump(){
-    this.breadcrump = [{"title": this.translate.t("MENU.DASHBOARD"), link: "/dashboard"}];
+    this.breadcrump = [{"title": "Users", link: "/users"}];
     let url = document.location.pathname || "";
     if(!url) return false;
     // 
@@ -38,7 +38,7 @@ export class Subheader1Component implements OnInit {
       this.isUrlContains(url,"user-edit")
       ){
       this.breadcrump.push({title: "User Settings", link: "/users-settings"});
-      if(this.isUrlContains(url,"create-store")){
+      if(this.isUrlContains(url,"users")){
         this.breadcrump.push({title: "Create New Store", link: "#"});
       }
       if(this.isUrlContains(url,"user-details")){

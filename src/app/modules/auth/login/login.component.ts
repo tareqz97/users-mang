@@ -71,10 +71,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   async submit(){
     this.toggleErrorMsg("hide");
     await this.firebase.signin(this.f.email.value,this.f.password.value);
-    debugger
     if(this.firebase.isLoggedIn){
-        // ls.setValue("currentUser", currentUserModel);
-        this.router.navigate(["/dashboard"]);
+        ls.setValue("currentUser", {});
+        this.router.navigate(["/users"]);
     }else{
       this.toggleErrorMsg("show");
     }
