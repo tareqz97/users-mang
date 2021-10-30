@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "users-management-dd97a": {
+      "hosting": {
+        "demo1-app": [
+          "users-management-dd97a"
+        ]
+      }
+    }
+  }
+}

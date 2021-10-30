@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { AuthService } from '../_services/auth.service';
 import { Router } from '@angular/router';
 import { LocalStorage as ls } from "../../../utils/localstorage.service";
+import { FirebaseService } from '../firebase.service';
 // import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
+    private firebase: FirebaseService
     // private spinner: NgxSpinnerService
   ) {
     // this.spinner.show();
@@ -65,7 +67,19 @@ export class LoginComponent implements OnInit, OnDestroy {
     });
   }
 
-  submit() {
+
+  async submit(){
+    this.toggleErrorMsg("hide");
+    await this.firebase.signin(this.f.email.value,this.f.password.value);
+    debugger
+    if(this.firebase.isLoggedIn){
+        // ls.setValue("currentUser", currentUserModel);
+        this.router.navigate(["/dashboard"]);
+    }else{
+      this.toggleErrorMsg("show");
+    }
+  }
+  submit1() {
     // this.spinner.show();
     this.toggleErrorMsg("hide");
     // 

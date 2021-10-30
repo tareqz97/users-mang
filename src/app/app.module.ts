@@ -43,7 +43,18 @@ export function getHighlightLanguages() {
     { name: 'json', func: json },
   ];
 }
-
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { FirebaseService } from './modules/auth/firebase.service';
+const config = {
+  apiKey: "AIzaSyB7tVInoiCLuHzU5--cUzbJdEjoCQ8An3Q",
+  authDomain: "users-management-dd97a.firebaseapp.com",
+  projectId: "users-management-dd97a",
+  storageBucket: "users-management-dd97a.appspot.com",
+  messagingSenderId: "427936677384",
+  appId: "1:427936677384:web:bee9ce49169fee9118dbbd",
+  measurementId: "G-LG5SVCF3XD"
+};
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -71,6 +82,8 @@ export function getHighlightLanguages() {
     AppRoutingModule,
     InlineSVGModule.forRoot(),
     NgbModule,
+    AngularFireModule.initializeApp(config),
+    AngularFireDatabaseModule
   ],
   providers: [
     {
@@ -85,6 +98,7 @@ export function getHighlightLanguages() {
         languages: getHighlightLanguages,
       },
     },
+    FirebaseService
   ],
   bootstrap: [AppComponent],
 })
