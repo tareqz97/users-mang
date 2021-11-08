@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   loginForm: FormGroup;
   errorMsg: string;
   alertEle: Element;
+  currentUser: any = {};
   // private fields
   private unsubscribe: Subscription[] = []; // Read more: => https://brianflove.com/2016/12/11/anguar-2-unsubscribe-observables/
 
@@ -72,7 +73,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.toggleErrorMsg("hide");
     await this.firebase.signin(this.f.email.value,this.f.password.value);
     if(this.firebase.isLoggedIn){
-        ls.setValue("currentUser", {});
+      this.currentUser["first_name"] = "Admin";
+      this.currentUser["last_name"] = "";
+        ls.setValue("currentUser", this.currentUser);
         this.router.navigate(["/users"]);
     }else{
       this.toggleErrorMsg("show");

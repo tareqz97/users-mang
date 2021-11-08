@@ -403,8 +403,9 @@ ng-image-fullscreen-view .ng-image-fullscreen-view .lightbox-wrapper .lightbox-d
 }
 .brand-logo{
   & img{
-    width: 140px;
-    height: auto;
+    width: 100px;
+    height: 60px;
+    margin-top: 34px;
   }
   & span{
     color: white;

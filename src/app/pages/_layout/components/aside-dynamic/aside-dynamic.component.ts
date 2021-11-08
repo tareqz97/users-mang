@@ -156,7 +156,7 @@ export class AsideDynamicComponent implements OnInit, OnDestroy {
   }
 
   private getLogo() {
-    return `./assets/media/logos/logo-transparent.png`;
+    return `./assets/media/logos/admin-with-cogwheels.png`;
   }
 
   ngOnChanges(changes): void {
